@@ -17,19 +17,32 @@
  *
  * @package WordPress
  */
+require_once './vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::create(__DIR__);
+$dotenv->load();
 
+// define('ENVIRONMENT_DEV', 'dev');
+// define('ENVIRONMENT_STAGE', 'stage');
+// define('ENVIRONMENT_PROD', 'prod');
+// define('ENVIRONMENT', getenv('ENVIRONMENT'));
+
+// /** no errors on production **/
+// if (ENVIRONMENT === ENVIRONMENT_PROD) {
+//     error_reporting(0);
+//     @ini_set('display_errors', 0);
+// }
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'bitnami_wordpress' );
+define( 'DB_NAME', getenv('DB_NAME') );
 
 /** MySQL database username */
-define( 'DB_USER', 'bn_wordpress' );
+define( 'DB_USER', getenv('DB_USER') );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', '34466f60ed' );
+define( 'DB_PASSWORD', getenv('DB_PASSWORD') );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'localhost:3306' );
+define( 'DB_HOST', getenv('DB_HOST') );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
