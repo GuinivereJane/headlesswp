@@ -17,7 +17,7 @@
  *
  * @package WordPress
  */
-require_once './vendor/autoload.php';
+require_once(__DIR__ . '/vendor/autoload.php');
 $dotenv = Dotenv\Dotenv::create(__DIR__);
 $dotenv->load();
 
@@ -25,6 +25,10 @@ $dotenv->load();
 // define('ENVIRONMENT_STAGE', 'stage');
 // define('ENVIRONMENT_PROD', 'prod');
 // define('ENVIRONMENT', getenv('ENVIRONMENT'));
+
+
+define('JWT_AUTH_SECRET_KEY', getenv('JSONTOKEN_SECERET') );
+define('JWT_AUTH_CORS_ENABLE', true);
 
 // /** no errors on production **/
 // if (ENVIRONMENT === ENVIRONMENT_PROD) {
